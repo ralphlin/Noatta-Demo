@@ -19,4 +19,20 @@ class PagesController < ApplicationController
   	@title = "Help"
   end
 
+  def clientdemo
+    @title = "Client Demo"
+  end
+
+  def serverdemo
+    @title = "Server Demo"
+  end
+
+  def checkin
+    @title = "Check In"
+  end
+
+  def payment
+    @title = "Payment"
+  end
+
 end

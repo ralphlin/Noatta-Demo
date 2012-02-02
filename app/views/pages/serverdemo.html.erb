@@ -1,0 +1,33 @@
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">What's up?</h1>
+        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Sign in</h1>
+
+  <%= form_for(:session, :url => sessions_path) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Sign in" %>
+    </div>
+  <% end %>
+
+  <p>New User? <%= link_to "Sign up now!", signup_path %></p>
+  
+<% end %>

@@ -1,0 +1,141 @@
+<!-- <html>
+<head>
+<link rel=stylesheet href="i/theme-default/style.css" type="text/css">
+<link rel=stylesheet href="i/font-middle.css" type="text/css">
+<title>Enroll fingerprint</title>
+</head> -->
+
+<!-- BioPlugin ActiveX control to capture finger data -->
+
+<OBJECT ID="BioPlugInActX" WIDTH=0 HEIGHT=0 CLASSID="CLSID:05E8280C-D45A-494F-AE42-840A40444AFF">
+	<param name="_Version" value="65536">
+	<param name="_ExtentX" value="2646">
+	<param name="_ExtentY" value="2646">
+	<param name="_StockProps" value="0">
+</OBJECT>
+
+
+<script language="javascript" type="text/javascript">
+function StartCapture() 
+	{
+	var a = IsClientInstalled();
+	if(form_enroll.FieldIsCIns.value=="true")
+		{
+		var b = IsClientRunning();	  
+		if(form_enroll.FieldIsCRun.value=="true")
+			{ 
+				var c= GetScannerS(); 
+				alert("Checking Scanner Status....");
+				if(form_enroll.FieldGetSStatus.value=="SCANNER_FOUND")
+					{   
+				    	alert(" Scanner Found");
+						getFingerprint(); 
+					}
+				else
+			    	alert(" Scanner not found. Please connect the fingerprint scanner");
+			}
+		}
+	}
+</script>
+
+
+<script language="javascript" type="text/javascript">
+function Delete() 
+	{       
+        	BioPlugInActX.DeletePrint(document.getElementById('RegID').value);       
+        	// MUST return false here; a postback would suppress the OnCapture event:
+		return false;     
+	}
+</script>
+
+
+<script language="javascript" type="text/javascript">
+function getFingerprint() 
+	{       
+        // scan finger (data is returned in OnCapture event)
+		var captureResult =  BioPlugInActX.RegisterSinglePrint(document.getElementById('RegID').value);       
+        // MUST return false here; a postback would suppress the OnCapture event:
+		return false;     
+	} 
+</script>
+
+ 
+<script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnRegister()" >
+	// OnCapture event
+	var OncaptureResult =  BioPlugInActX1.GetResult();
+        form_enroll.FingerData.value = OncaptureResult;
+</script>
+		
+<script language="javascript" type="text/javascript">
+function GetScannerS() 
+	{       
+        // scan finger (data is returned in OnCapture event)
+		var captureResult =  BioPlugInActX.GetScannerStatus();       
+        // MUST return false here; a postback would suppress the OnCapture event:
+		return false;     
+	} 
+</script>
+
+<script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnScannerStatus()" >
+	// OnCapture event
+	var OSSResult =  BioPlugInActX.Result();
+        form_enroll.FieldGetSStatus.value = OSSResult;
+</script>
+		
+
+<script language="javascript" type="text/javascript">
+function IsClientInstalled() 
+	{       
+		// scan finger (data is returned in OnCapture event)
+		var IsCIns =  BioPlugInActX.IsClientInstalled();       
+        // MUST return false here; a postback would suppress the OnCapture event:
+		form_enroll.FieldIsCIns.value = IsCIns;
+	} 
+
+function IsClientRunning() 
+	{       
+        // scan finger (data is returned in OnCapture event)
+		var IsCRun =  BioPlugInActX.IsClientRunning();       
+        // MUST return false here; a postback would suppress the OnCapture event:
+		form_enroll.FieldIsCRun.value = IsCRun;
+	} 
+</script>
+
+ 
+<body style="PADDING-RIGHT: 50px; PADDING-LEFT: 50px; PADDING-BOTTOM: 50px; PADDING-TOP: 50px">
+
+<center>
+	<form name="form_enroll" method=post style="WIDTH: 250px">
+          <h1>Enroll Fingerprint</h1>
+
+          <table>
+            <tr><td>Registration ID<td><input name="ID" id="RegID">
+			<input type="hidden" name="FieldIsCIns">
+			
+			<input type="hidden" name="FieldIsCRun">
+			<input type="hidden" name="FingerData">
+			<input type="hidden" name="FieldGetSStatus">
+			</td>
+
+            <tr><td>Finger Type</td><td><SELECT NAME="finger_type">
+        		<option value="0"> Thumb
+        		<option value="1"> Index
+        		<option value="2"> Middle
+        		<option value="3"> Ring
+        		<option value="4"> Small
+				</SELECT>
+			</td>
+									
+
+			<!-- Location ID to be passed is 1 unless you want to segment data based on various location or clients -->
+			<input type="hidden" value="1" name="LocationID" id="nick">
+          </table>
+		  <tr><td colspan="2" style="TEXT-ALIGN: right">
+
+                <input type=button value="  Capture  " class="btn"  name=submit_cmd  OnClick="StartCapture()">
+				<input type=button value="  Delete  " class="btn"  name=submit_cmd  OnClick="Delete()">
+                </td></tr>
+		  </form>
+</center>
+</body>
+</html>
