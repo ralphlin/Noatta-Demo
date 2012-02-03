@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203223847) do
+ActiveRecord::Schema.define(:version => 20120203225300) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(:version => 20120203223847) do
     t.string   "business4_name"
     t.string   "business4_member_type"
     t.string   "business4_id"
+    t.string   "bank1_name"
+    t.string   "bank1_routing_number"
+    t.string   "bank1_account_number"
+    t.boolean  "bank1_isDefault",       :default => false
+    t.string   "bank2_name"
+    t.string   "bank2_routing_number"
+    t.string   "bank2_account_number"
+    t.boolean  "bank2_isDefault",       :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
