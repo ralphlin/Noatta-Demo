@@ -313,3 +313,33 @@ form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
 }
+
+h1.transaction {
+  margin-bottom: 0.3em;
+}
+
+table.transactions {
+  margin-top: 1em;
+}
+
+table.transactions tr {
+  height: 70px;
+}
+
+table.transactions tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.transactions tr td.transaction {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+table.transactions tr td.transaction span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}

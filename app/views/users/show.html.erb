@@ -6,11 +6,11 @@
 	    <%= @user.name %>
 	  </h1>
 
-	  <% unless @user.microposts.empty? %>
-	    <table class="microposts" summary="User microposts">
-	      <%= render @microposts %>
+	  <% unless @user.transactions.empty? %>
+	    <table class="transactions" summary="User transactions">
+	      <%= render @transactions %>
 	    </table>
-	    <%= will_paginate @microposts %>
+	    <%= will_paginate @transactions %>
 	  <% end %>
 	</td>
 	<td class = "sidebar round">

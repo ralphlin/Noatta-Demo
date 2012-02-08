@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203225300) do
+ActiveRecord::Schema.define(:version => 20120203231657) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(:version => 20120203225300) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "transactions", :force => true do |t|
+    t.string   "business_name"
+    t.decimal  "amount"
+    t.string   "item_list"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["user_id", "created_at"], :name => "index_transactions_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -61,11 +72,11 @@ ActiveRecord::Schema.define(:version => 20120203225300) do
     t.string   "bank1_name"
     t.string   "bank1_routing_number"
     t.string   "bank1_account_number"
-    t.boolean  "bank1_isDefault",       :default => false
+    t.boolean  "bank1_isDefault"
     t.string   "bank2_name"
     t.string   "bank2_routing_number"
     t.string   "bank2_account_number"
-    t.boolean  "bank2_isDefault",       :default => false
+    t.boolean  "bank2_isDefault"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

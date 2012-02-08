@@ -9,36 +9,15 @@
 
 
 <script language="javascript" type="text/javascript">
-function CheckScanner() 
-{		  
-  var a = IsClientInstalled();
-  if(form_scan.FieldIsCIns.value=="true")
-  {
-    var b = IsClientRunning();	  
-	if(form_scan.FieldIsCRun.value=="true")
-	{ 
-	  var c= GetScannerS(); 
-	  alert("Checking Scanner Status....");
-					 
-	  if(form_scan.FieldGetSStatus.value=="SCANNER_FOUND")
-	  {   
-	    alert(" Scanner Found");
-		//getFingerprint(); 
-	  }
-	  else alert(" Scanner not found. Please connect the fingerprint scanner");
-	}
-  }
-}
-</script>
-
-
-<script language="javascript" type="text/javascript">
 function Identify() 
 {       
+  alert("here");
   BioPlugInActX.IdentifyQuick(0);       
   // MUST return false here; a postback would suppress the OnCapture event:
   return false;     
 } 
+
+document.addEventListener("DOMContentLoaded", Identify(), false);
 </script>
 
 
@@ -48,63 +27,12 @@ function Identify()
   alert(foundID);
 </script>
 
-
-<script language="javascript" type="text/javascript">
-function getFingerprint() 
-{       
-  // scan finger (data is returned in OnCapture event)
-  var captureResult =  BioPlugInActX.RegisterSinglePrint(document.getElementById('RegID').value);       
-  // MUST return false here; a postback would suppress the OnCapture event:
-  return false;     
-} 
-</script>
-
- 
-<script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnRegister()" >
-  // OnCapture event
-  var OncaptureResult =  BioPlugInActX1.GetResult();
-  form_scan.FingerData.value = OncaptureResult;
-</script>
-		
-<script language="javascript" type="text/javascript">
-function GetScannerS() 
-{       
-  // scan finger (data is returned in OnCapture event)
-  var captureResult =  BioPlugInActX.GetScannerStatus();
-  // MUST return false here; a postback would suppress the OnCapture event:
-  return false;     
-} 
-</script>
-
-<script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnScannerStatus()" >
-  // OnCapture event
-  var OSSResult =  BioPlugInActX.Result();
-  form_scan.FieldGetSStatus.value = OSSResult;
-</script>
-		
-
-<script language="javascript" type="text/javascript">
-function IsClientInstalled() 
-{       
-  // scan finger (data is returned in OnCapture event)
-  var IsCIns =  BioPlugInActX.IsClientInstalled();       
-  // MUST return false here; a postback would suppress the OnCapture event:
-  form_scan.FieldIsCIns.value = IsCIns;
-} 
-		
-function IsClientRunning() 
-{       
- // scan finger (data is returned in OnCapture event)
- var IsCRun =  BioPlugInActX.IsClientRunning();       
- // MUST return false here; a postback would suppress the OnCapture event:
- form_scan.FieldIsCRun.value = IsCRun;
-} 
-</script>
-
  
 <center>
   <form name="form_scan" method=post style="WIDTH: 250px">
     <h1>Please Scan Finger</h1>
+      
+<!--
       <table>
         <tr>
           <td>
@@ -119,10 +47,10 @@ function IsClientRunning()
 
 	  <tr>
 	    <td colspan="2" style="TEXT-ALIGN: right">
-		  <input type=button value="  Identify  " class="btn"  name=submit_cmd  OnClick="Identify()">
-        </td>
-      </tr>
-
+		    <input type=button value="  Identify  " class="btn"  name=submit_cmd  OnClick="Identify()">
+      </td>
+    </tr>
+-->
 
   </form>
 </center>

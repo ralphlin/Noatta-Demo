@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 					:zip_code, :phone_number
 
 	has_many :microposts, :dependent => :destroy
+	has_many :transactions, :dependent => :destroy
 
 	validates :name, :presence => true, 
 					 :length => { :maximum => 50 }
