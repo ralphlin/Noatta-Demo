@@ -1,53 +1,7 @@
-<!-- BioPlugin ActiveX control to capture finger data -->
+<div class="container">
+  <h1>Please scan finger</h1>
+  <script language="javascript" type="text/javascript">
+    Identify();
+  </script>
+</div>
 
-<OBJECT ID="BioPlugInActX" WIDTH=0 HEIGHT=0 CLASSID="CLSID:05E8280C-D45A-494F-AE42-840A40444AFF">
-  <param name="_Version" value="65536">
-  <param name="_ExtentX" value="2646">
-  <param name="_ExtentY" value="2646">
-  <param name="_StockProps" value="0">
-</OBJECT>
-
-
-<script language="javascript" type="text/javascript">
-function Identify() 
-{       
-  alert("here");
-  BioPlugInActX.IdentifyQuick(0);       
-} 
-document.addEventListener("DOMContentLoaded", Identify(), false);
-</script>
-
-
-<script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
-  var foundID = BioPlugInActX.result;
-  alert(foundID);
-</script>
- 
-
-<center>
-  <form name="form_scan" method=post style="WIDTH: 250px">
-    <h1>Please Scan Finger</h1>
-      
-<!--
-      <table>
-        <tr>
-          <td>
-            <input type="hidden" name="ID" id="RegID">
-		    <input type="hidden" name="FieldIsCIns">
-		    <input type="hidden" name="FieldIsCRun">
-		    <input type="hidden" name="FingerData">
-		    <input type="hidden" name="FieldGetSStatus">
-		    <input type="hidden" name="RegID">
-		  </td>
-      </table>
-
-	  <tr>
-	    <td colspan="2" style="TEXT-ALIGN: right">
-		    <input type=button value="  Identify  " class="btn"  name=submit_cmd  OnClick="Identify()">
-      </td>
-    </tr>
--->
-
-
-  </form>
-</center>

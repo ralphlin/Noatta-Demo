@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
+<!-- BioPlugin ActiveX control to capture finger data -->
+<OBJECT ID="BioPlugInActX" WIDTH=0 HEIGHT=0 CLASSID="CLSID:05E8280C-D45A-494F-AE42-840A40444AFF">
+<param name="_Version" value="65536">
+<param name="_ExtentX" value="2646">
+<param name="_ExtentY" value="2646">
+<param name="_StockProps" value="0">
+</OBJECT>
+
   <head>
     <title><%= @title %></title>
     <%= csrf_meta_tag %>
     <%= render 'layouts/stylesheets' %>
     <%= javascript_include_tag "application" %>
+    <script language="javascript" type="text/javascript">
+    function Identify()
+    {
+      BioPlugInActX.IdentifyQuick(0);
+    }
+  </script>
+
+  <script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
+    alert(BioPlugInActX.result);
+  </script>
+
   </head>
   <body>
     <div class="container">

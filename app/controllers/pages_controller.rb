@@ -29,6 +29,7 @@ class PagesController < ApplicationController
 
   def checkin
     @title = "Check In"
+    @foundID
   end
 
   def payment
