@@ -1,5 +1,7 @@
-# Ruby on Rails Tutorial: sample application
+# Noatta Demo
 
-This is the sample application for
-[*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
-by [Michael Hartl](http://michaelhartl.com/).
+This is the Ruby on Rails code for the client and server
+demo of the Noatta finger scanning system
+
+Created by Ralph Lin
+February 2012

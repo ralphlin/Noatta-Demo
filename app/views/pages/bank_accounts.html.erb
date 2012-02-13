@@ -1,0 +1,27 @@
+<h1><%= @user.name %>'s Bank Accounts</h1>
+<p>
+<strong><%= @user.bank1_name %></strong>
+<% if @user.bank1_isDefault == true %>
+  <i> Default payment account</i>
+<% end %>
+<br />
+<strong>Routing Number: </strong>
+<%= @user.bank1_routing_number %><br />
+<strong>Account Number: </strong>
+<%= @user.bank1_account_number %><br />
+<br />
+
+<strong><%= @user.bank2_name %></strong>
+<% if @user.bank2_isDefault == true %>
+  <i> Default payment account</i>
+<% end %>
+<br />
+<strong>Routing Number:</strong>
+<%= @user.bank2_routing_number %><br />
+<strong>Account Number:</strong>
+<%= @user.bank2_account_number %><br />
+<br />
+
+
+</p>
+<%= link_to "Edit Bank Info", edit_bank_info_path %>

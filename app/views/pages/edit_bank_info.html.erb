@@ -1,0 +1,55 @@
+<h1>Edit bank info</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :bank1_name, "Bank Name" %><br />
+    <%= f.text_field :bank1_name %>
+  </div>
+  <div class="field">
+    <%= f.label :bank1_routing_number, "Routing Number" %><br />
+    <%= f.text_field :bank1_routing_number %>
+  </div>
+  <div class="field">
+    <%= f.label :bank1_account_number, "Account Number" %><br />
+    <%= f.text_field :bank1_account_number %>
+  </div>
+  <div class="field">
+    Make this account the default payment account: 
+    <%= f.check_box :bank1_isDefault %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :bank2_name, "Bank Name" %><br />
+    <%= f.text_field :bank2_name %>
+  </div>
+  <div class="field">
+    <%= f.label :bank2_routing_number, "Routing Number" %><br />
+    <%= f.text_field :bank2_routing_number %>
+  </div>
+  <div class="field">
+    <%= f.label :bank2_account_number, "Account Number" %><br />
+    <%= f.text_field :bank2_account_number %>
+  </div>
+  <div class="field">
+    Make this account the default payment account: 
+    <%= f.check_box :bank2_isDefault %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  </div>  
+  <div class="actions">
+    <%= f.submit "update_bank_info" %>
+  </div>
+<% end %>
+
+
+
+      

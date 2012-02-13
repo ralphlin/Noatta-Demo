@@ -3,7 +3,13 @@ class User < ActiveRecord::Base
 	attr_accessor :password
 	attr_accessible :name, :email, :password, :password_confirmation, 
 					:street_address, :city_address, :state_address, 
-					:zip_code, :phone_number
+					:zip_code, :phone_number,
+					:business1_name, :business1_member_type, :business1_id,
+					:business2_name, :business2_member_type, :business2_id,
+					:business3_name, :business3_member_type, :business3_id,
+					:business4_name, :business4_member_type, :business4_id,
+					:bank1_name, :bank1_routing_number, :bank1_account_number, :bank1_isDefault,
+					:bank2_name, :bank2_routing_number, :bank2_account_number, :bank2_isDefault
 
 	has_many :microposts, :dependent => :destroy
 	has_many :transactions, :dependent => :destroy
@@ -16,6 +22,7 @@ class User < ActiveRecord::Base
 						 :confirmation => true,
 						 :length => { :within => 6..40 }				  
 
+	
 	before_save :encrypt_password
 
 	# Return true if the user's password matches the submitted password

@@ -35,4 +35,25 @@ class PagesController < ApplicationController
     @title = "Payment"
   end
 
+  def bank_accounts
+    if signed_in?
+      @user = current_user
+    end
+    @title = "Bank Accounts"
+  end
+
+  def merchants
+    @title = "Merchants"
+    if signed_in?
+      @user = current_user
+    end
+  end
+
+  def edit_bank_info
+    @title = "Edit Bank Account Info"
+    if signed_in?
+      @user = current_user
+    end
+  end
+
 end

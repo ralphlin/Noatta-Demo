@@ -13,21 +13,17 @@ function Identify()
 {       
   alert("here");
   BioPlugInActX.IdentifyQuick(0);       
-  // MUST return false here; a postback would suppress the OnCapture event:
-  return false;     
 } 
-
 document.addEventListener("DOMContentLoaded", Identify(), false);
 </script>
 
 
 <script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
-  // OnCapture event
-  var foundID =  BioPlugInActX.Result();
+  var foundID = BioPlugInActX.result;
   alert(foundID);
 </script>
-
  
+
 <center>
   <form name="form_scan" method=post style="WIDTH: 250px">
     <h1>Please Scan Finger</h1>
@@ -51,6 +47,7 @@ document.addEventListener("DOMContentLoaded", Identify(), false);
       </td>
     </tr>
 -->
+
 
   </form>
 </center>

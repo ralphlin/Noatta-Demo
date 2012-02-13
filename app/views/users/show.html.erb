@@ -15,8 +15,6 @@
 	</td>
 	<td class = "sidebar round">
 	  <strong>Name</strong> <%= @user.name %><br />
-	  <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
-	  <strong>Microposts</strong> <%= @user.microposts.count %><br />
 	  <strong>Address</strong><br />
 	  <%= @user.street_address %><br />
 	  <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />

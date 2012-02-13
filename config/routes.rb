@@ -16,6 +16,11 @@ SampleApp::Application.routes.draw do
   match '/clientdemo',  :to => 'pages#clientdemo'
   match '/checkin',     :to => 'pages#checkin'
   match '/payment',     :to => 'pages#payment'
+
+  match '/bank_accounts', :to => 'pages#bank_accounts'
+  match '/merchants', :to => 'pages#merchants'
+  match '/edit_bank_info', :to => 'pages#edit_bank_info'
+  
     
   # The priority is based upon order of creation:
   # first created -> highest priority.
