@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update]
+  # commented out for unsecure finger scan in without password
+  # before_filter :authenticate, :only => [:index, :edit, :update]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user, :only => :destroy
 
