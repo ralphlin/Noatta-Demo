@@ -18,11 +18,26 @@
     {
       BioPlugInActX.IdentifyQuick(0);
     }
-  </script>
 
-  <script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
-    alert(BioPlugInActX.result);
-  </script>
+    function scanIn(uid)
+    {
+      var targetURL = 'http://localhost:3000/users/'
+      window.location.replace(targetURL + uid); 
+    }
+    </script>
+
+    <script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
+      var foundID = BioPlugInActX.result;
+      if (foundID == "000000000")
+      {
+        alert("User not found!");
+        window.location.replace('http://localhost:3000/clientdemo');
+      }
+      else
+      { 
+        scanIn(foundID);
+      }
+    </script>
 
   </head>
   <body>

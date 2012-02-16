@@ -20,7 +20,7 @@ SampleApp::Application.routes.draw do
   match '/bank_accounts', :to => 'pages#bank_accounts'
   match '/merchants', :to => 'pages#merchants'
   match '/edit_bank_info', :to => 'pages#edit_bank_info'
-  
+  match '/edit_merchant_info', :to => 'pages#edit_merchant_info'  
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -57,4 +57,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def edit_merchant_info
+    @title = "Edit Merchant Info"
+    if signed_in?
+      @user = current_user
+    end
+  end
 end
