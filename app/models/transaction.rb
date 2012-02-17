@@ -3,9 +3,5 @@ class Transaction < ActiveRecord::Base
 
 	belongs_to :user
 
-	validates :business_name, :presence => true
-	validates :amount, :presence => true
-	validates :user_id, :presence => true
-
 	default_scope :order => 'transactions.created_at DESC'
 end

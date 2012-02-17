@@ -12,10 +12,14 @@ SampleApp::Application.routes.draw do
   match '/signin',    :to => 'sessions#new'
   match '/signout',    :to => 'sessions#destroy'
 
+  match '/scanin/:id', :to => 'pages#scanin'
+  match '/scanpay/:id', :to => 'pages#scanpay'
+
   match '/serverdemo',  :to => 'pages#serverdemo'
   match '/clientdemo',  :to => 'pages#clientdemo'
   match '/checkin',     :to => 'pages#checkin'
   match '/payment',     :to => 'pages#payment'
+  match '/payment_scan',     :to => 'pages#payment_scan'
 
   match '/bank_accounts', :to => 'pages#bank_accounts'
   match '/merchants', :to => 'pages#merchants'

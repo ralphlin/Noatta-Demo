@@ -34,6 +34,11 @@ class PagesController < ApplicationController
 
   def payment
     @title = "Payment"
+    @transaction = Transaction.new
+  end
+
+  def payment_scan
+    @title = "Payment Scan"
   end
 
   def bank_accounts
@@ -63,4 +68,15 @@ class PagesController < ApplicationController
       @user = current_user
     end
   end
+  
+  def scanin
+    @user = User.find(params[:id])
+    @title = @user.name
+  end
+
+  def scanpay
+    @user = User.find(params[:id])
+    @title = @user.name
+  end
+
 end

@@ -14,6 +14,8 @@
     <%= render 'layouts/stylesheets' %>
     <%= javascript_include_tag "application" %>
     <script language="javascript" type="text/javascript">
+    checkin=false;
+    payscan=false;
     function Identify()
     {
       BioPlugInActX.IdentifyQuick(0);
@@ -21,21 +23,37 @@
 
     function scanIn(uid)
     {
-      var targetURL = 'http://localhost:3000/users/'
+      var targetURL = 'http://localhost:3000/scanin/'
       window.location.replace(targetURL + uid); 
     }
+
+    function scanPay(uid)
+    {
+      var targetURL = 'http://localhost:3000/scanpay/'
+      window.location.replace(targetURL + uid); 
+    }
+
     </script>
 
     <script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
       var foundID = BioPlugInActX.result;
-      if (foundID == "000000000")
+      if ((foundID == "000000000") & (foundID == "-1"))
       {
         alert("User not found!");
         window.location.replace('http://localhost:3000/clientdemo');
       }
       else
       { 
-        scanIn(foundID);
+        if ( checkin === true )
+        {
+          checkin=false;
+          scanIn(foundID);
+        }
+        if ( payscan === true )
+        {
+          payscan=false;
+          scanPay(foundID);
+        }
       }
     </script>
 
