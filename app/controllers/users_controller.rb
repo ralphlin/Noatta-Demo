@@ -25,15 +25,43 @@ class UsersController < ApplicationController
     end
   end
 
+  def newscanuser
+    if signed_in?
+      redirect_to root_path
+    else
+      @user = User.new
+      @title = "Sign Up"
+    end
+  end
+
+  def createandregisterscan
+    if signed_in?
+      redirect_to root_path
+    else
+      params[:user][:password]= ('a'..'z').to_a.shuffle[0..7].join
+      params[:user][:confirm_password] = params[:user][:password]
+      @user = User.new(params[:user])
+      if @user.save
+        UserMailer.registration_email(@user).deliver
+      else
+        @title = "Sign Up"
+        render 'new'
+      end
+    end
+  end
+
+  def newscanuserregistered
+    @title = "Welcome!"
+  end
+
   def create
     if signed_in?
       redirect_to root_path
     else
       @user = User.new(params[:user])
   	  if @user.save
-        UserMailer.registration_email(@user).deliver
         sign_in @user
-  		  flash[:success] = "New User Created!"
+  		  flash[:success] = "New user account created!"
   		  redirect_to @user
   	  else
   		  @title = "Sign Up"

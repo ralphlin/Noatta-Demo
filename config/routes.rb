@@ -10,6 +10,9 @@ SampleApp::Application.routes.draw do
   match '/help',      :to => 'pages#help'
   match '/signup',    :to => 'users#new'
   match '/signin',    :to => 'sessions#new'
+  match '/createandregisterscan', :to => 'users#createandregisterscan'
+  match '/newscanuser', :to => 'users#newscanuser'
+  match '/newscanuserregistered', :to => 'users#newscanuserregistered'
   match '/signout',    :to => 'sessions#destroy'
 
   match '/mbtest', :to => 'pages#mbtest'

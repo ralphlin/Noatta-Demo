@@ -1,0 +1,20 @@
+<script language="javascript" type="text/javascript">
+function register() 
+{       
+  // scan finger (data is returned in OnCapture event)
+  var captureResult =  BioPlugInActX.RegisterSinglePrint(<%= @user.id %>);
+  return false;     
+}
+</script>
+ 
+<script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnRegister()" >
+  // OnCapture event
+  var OncaptureResult =  BioPlugInActX1.GetResult();
+</script>
+
+
+<h1>Please Scan your finger</h1>
+
+<%= javascript_tag("register()") %>
+
+<%= link_to "Continue", newscanuserregistered_path, :class => "signup_button round" %>

@@ -14,8 +14,9 @@ class User < ActiveRecord::Base
 	has_many :microposts, :dependent => :destroy
 	has_many :transactions, :dependent => :destroy
 
-	validates :name, :presence => true, 
-					 :length => { :maximum => 50 }
+    # removed so new users who register can create accounts with only email addresses
+	# validates :name, :presence => true, 
+	#				 :length => { :maximum => 50 }
 	validates :email, :presence => true, 
 					  :uniqueness => { :case_sensitive => false }
 	validates :password, :presence => true,
@@ -23,7 +24,7 @@ class User < ActiveRecord::Base
 						 :length => { :within => 6..40 }				  
 
 	
-	# before_save :encrypt_password
+	before_save :encrypt_password
 
 	# Return true if the user's password matches the submitted password
 	def has_password?(submitted_password)

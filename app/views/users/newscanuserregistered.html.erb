@@ -1,0 +1,18 @@
+<script language="javascript" type="text/javascript">
+function timer() 
+{
+  var t = setTimeout("window.location.replace('http://localhost:3000/clientdemo')", 4000);	
+}
+</script>
+
+<h1>Welcome to Noatta!</h1>
+<p>
+  The future of contactless check in and payment.<br>
+
+  Please check your email to set up your new account!
+</p>
+<%= link_to "Finish", clientdemo_path, :class => "signup_button round" %>
+
+<script language="javascript" type="text/javascript">
+  timer();
+</script>
