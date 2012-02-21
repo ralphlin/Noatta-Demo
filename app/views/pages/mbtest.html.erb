@@ -1,0 +1,17 @@
+<h1>User Arrival test</h1>
+
+<%= form_tag mbtest_url, method: :get do %>
+<p>
+  <%= text_field_tag :mb_online_add_arrival, params[:mb_online_add_arrival] %>
+  <%= submit_tag "Lookup", name: nil %>
+</p>
+<% end %>
+
+<% if @mb_online_add_arrival %>
+  <dl>
+    <dt>Status:</dt>
+    <dd><%= @mb_online_add_arrival.status %></dd>
+    <dt>Message:</dt>
+    <dd><%= @mb_online_add_arrival.message %></dd>
+  </dl>
+<% end %>

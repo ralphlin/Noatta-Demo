@@ -3,6 +3,10 @@ class PagesController < ApplicationController
   	@title = "Home"
   end
 
+  def mbtest
+    @mb_online_add_arrival = MbOnlineAddArrival.new(params[:mb_online_add_arrival]) if params[:mb_online_add_arrival].present?
+  end
+
   def contact
   	@title = "Contact"
   end
@@ -69,9 +73,26 @@ class PagesController < ApplicationController
     end
   end
   
-  def scanin
+  def scansuccess
     @user = User.find(params[:id])
     @title = @user.name
+  end
+
+  def scanin
+    if (params[:id] == "000000000")
+      flash[:failure]="User not in Noatta database!"
+      redirect_to clientdemo_path
+    else
+      @user = User.find(params[:id])
+      @title = @user.name
+      @mb_online_add_arrival = MbOnlineAddArrival.new(@user.business1_id) if @user.present?
+      if @mb_online_add_arrival.status == "Success"
+        redirect_to "/scansuccess/" + params[:id].to_s
+      else
+        flash[:failure]= "User not found in Mind Body database!"
+        redirect_to clientdemo_path
+      end
+    end
   end
 
   def scanpay

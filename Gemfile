@@ -8,7 +8,7 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'gravatar_image_tag'
 gem 'will_paginate'
-
+gem 'savon'
 
 group :development do
 	gem 'annotate'
