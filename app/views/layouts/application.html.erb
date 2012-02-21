@@ -29,15 +29,16 @@
 
     function scanPay(uid)
     {
-      var targetURL = 'http://localhost:3000/scanpay/'
-      window.location.replace(targetURL + uid); 
+      var targetURL = 'http://localhost:3000/paymentconfirmation/'
+      var amount = <%= params[:amounttopay] %>
+      window.location.replace(targetURL + uid + "/" + amount); 
     }
 
     </script>
 
     <script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
       var foundID = BioPlugInActX.result;
-      if ((foundID == "000000000") & (foundID == "-1"))
+      if ((foundID == "000000000") | (foundID == "-1"))
       {
         alert("User not found!");
         window.location.replace('http://localhost:3000/clientdemo');

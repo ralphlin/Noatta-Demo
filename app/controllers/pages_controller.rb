@@ -36,13 +36,26 @@ class PagesController < ApplicationController
     @foundID
   end
 
-  def payment
-    @title = "Payment"
-    @transaction = Transaction.new
+  def scansuccess
+    @user = User.find(params[:id])
+    @title = @user.name
   end
 
-  def payment_scan
-    @title = "Payment Scan"
+  def scanin
+    if (params[:id] == "000000000")
+      flash[:failure]="User not in Noatta database!"
+      redirect_to clientdemo_path
+    else
+      @user = User.find(params[:id])
+      @title = @user.name
+      @mb_online_add_arrival = MbOnlineAddArrival.new(@user.business1_id) if @user.present?
+      if @mb_online_add_arrival.status == "Success"
+        redirect_to "/scansuccess/" + params[:id].to_s
+      else
+        flash[:failure]= "User not found in Mind Body database!"
+        redirect_to clientdemo_path
+      end
+    end
   end
 
   def bank_accounts
@@ -73,31 +86,23 @@ class PagesController < ApplicationController
     end
   end
   
-  def scansuccess
+  def paymentscan
+    @title = "Payment Scan"
+  end
+
+  def enterpayment
+    @title = "Payment"
+  end
+
+  def paymentconfirmation
     @user = User.find(params[:id])
     @title = @user.name
   end
 
-  def scanin
-    if (params[:id] == "000000000")
-      flash[:failure]="User not in Noatta database!"
-      redirect_to clientdemo_path
-    else
-      @user = User.find(params[:id])
-      @title = @user.name
-      @mb_online_add_arrival = MbOnlineAddArrival.new(@user.business1_id) if @user.present?
-      if @mb_online_add_arrival.status == "Success"
-        redirect_to "/scansuccess/" + params[:id].to_s
-      else
-        flash[:failure]= "User not found in Mind Body database!"
-        redirect_to clientdemo_path
-      end
-    end
-  end
-
-  def scanpay
+  def paymentposted
     @user = User.find(params[:id])
     @title = @user.name
+    @transaction = Transaction.new
   end
 
 end

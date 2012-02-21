@@ -12,17 +12,22 @@ SampleApp::Application.routes.draw do
   match '/signin',    :to => 'sessions#new'
   match '/signout',    :to => 'sessions#destroy'
 
-  match '/scansuccess/:id', :to => 'pages#scansuccess'
-  match '/scanin/:id', :to => 'pages#scanin'
-  match '/scanpay/:id', :to => 'pages#scanpay'
-
   match '/mbtest', :to => 'pages#mbtest'
 
   match '/serverdemo',  :to => 'pages#serverdemo'
   match '/clientdemo',  :to => 'pages#clientdemo'
+
+  match '/paymentscan(/:amounttopay)',       
+        :to => 'pages#paymentscan', :constraints => {:amounttopay => /[^\/]+/}
+  match '/enterpayment',                   :to => 'pages#enterpayment'
+  match '/paymentconfirmation/:id/:amounttopay',    
+        :to => 'pages#paymentconfirmation', :constraints => {:amounttopay => /[^\/]+/}
+  match '/paymentposted/:id/:amounttopay', 
+        :to => 'pages#paymentposted', :constraints => {:amounttopay => /[^\/]+/}
+
   match '/checkin',     :to => 'pages#checkin'
-  match '/payment',     :to => 'pages#payment'
-  match '/payment_scan',     :to => 'pages#payment_scan'
+  match '/scansuccess/:id', :to => 'pages#scansuccess'
+  match '/scanin/:id', :to => 'pages#scanin'
 
   match '/bank_accounts', :to => 'pages#bank_accounts'
   match '/merchants', :to => 'pages#merchants'

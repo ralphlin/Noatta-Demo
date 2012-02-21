@@ -1,0 +1,17 @@
+<table class="profile" summary="Payment confirmation">
+  <tr>
+    <td class="main">
+      <h1>
+	      <%= gravatar_for @user %>
+	      <%= @user.name %><br />
+	      <%= @user.street_address %><br />
+	      <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />
+        Amount to be Charged: $<%= params[:amounttopay] %>
+	    </h1>
+      <%= link_to "Purchase", "/paymentposted/"+ params[:id] + "/" + params[:amounttopay], :class => "signup_button round" %><br>
+
+      <%= link_to "Cancel", clientdemo_path, :class => "signup_button round" %>
+
+	  </td>
+  </tr>
+</table>
