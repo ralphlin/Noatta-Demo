@@ -2,16 +2,26 @@
   <tr>
     <td class="main">
       <h1>
-	      <%= gravatar_for @user %>
-	      <%= @user.name %><br />
-	      <%= @user.street_address %><br />
-	      <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />
-        Amount to be Charged: $<%= params[:amounttopay] %>
-	    </h1>
-      <%= link_to "Purchase", "/paymentposted/"+ params[:id] + "/" + params[:amounttopay], :class => "signup_button round" %><br>
-
-      <%= link_to "Cancel", clientdemo_path, :class => "signup_button round" %>
-
-	  </td>
+      <%= @user.name %><br />
+      </h1>
+      <%= @user.street_address %><br />
+      <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />     
+    </td>
+    <td class="scanin_gravatar">
+      <%= gravatar_for @user, options = { :size => 150 } %>
+    </td>
+  </tr>
+  <tr class="main">
+    <td>
+      <h1>Amount to be Charged: $<%= params[:amounttopay] %></h1>
+    </td>
+  </tr>
+  <tr>
+    <td class="main">
+      <%= link_to "Purchase", "/paymentposted/"+ params[:id] + "/" + params[:amounttopay], :class => "purchase_button round" %><br>
+    </td>
+    <td class="main">
+      <%= link_to "Cancel", clientdemo_path, :class => "cancel_button round" %>
+    </td>
   </tr>
 </table>

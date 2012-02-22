@@ -7,15 +7,15 @@ function timer()
 
 <table class="profile" summary="Profile information">
   <tr>
-    <td class="main">
+    <td class="scanin">
       <h1>
 	    <%= @user.name %><br />
       </h1>
       Mobius Member ID: <%= @user.business1_id %><br />
       Status: Current	    
 	  </td>
-    <td>
-      <%= gravatar_for @user, options = { :size => 200 } %>
+    <td class="scanin_gravatar">
+      <%= gravatar_for @user, options = { :size => 150 } %>
     </td>
   </tr>
   <tr>

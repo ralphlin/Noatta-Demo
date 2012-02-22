@@ -1,8 +1,8 @@
-<h1>Please enter total amount:</h1>
+<h1>Please enter total amount to pay:</h1>
 
 <%= form_tag "/paymentscan", method: :get do %>
 <p>
-  <%= text_field_tag :amounttopay, params[:amounttopay] %>
-  <%= submit_tag "Scan!", name: nil %>
+  <%= text_field_tag :amounttopay, params[:amounttopay], :class => 'amount_textfield' %>
+  <%= image_submit_tag "scan_button.png", :class => 'scan_button' %>
 </p>
 <% end %>

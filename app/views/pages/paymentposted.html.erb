@@ -6,25 +6,12 @@ function timer()
 </script>
 
 
-<table class="profile" summary="Payment confirmation">
-  <tr>
-    <td class="main">
-      <h1>
-	      <%= gravatar_for @user %>
-	      <%= @user.name %><br />
-	      <%= @user.street_address %><br />
-	      <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />
-        Amount to be Charged: $<%= params[:amounttopay] %>
-	    </h1>
+<%= @transaction = @user.transactions.build(:business_name => "Mobius Fit", :amount => params[:amounttopay]) %>
+<% if @transaction.save %>
+  <h1><center>Payment was processed successfully</center></h1>
+<% else %>
+  <h1><center>Payment Error!</center></h1>
+<% end %>
 
-      <%= @transaction = @user.transactions.build(:business_name => "Mobius Fit", :amount => params[:amounttopay]) %>
-      <% if @transaction.save %>
-        <%= flash.now[:success] = "Transaction Posted Successfully!" %>
-      <% end %>
-
-
-	  </td>
-  </tr>
-</table>
-<%= link_to "Continue", clientdemo_path, :class => "signup_button round" %>
+<%= link_to "Continue", clientdemo_path, :class => "continue_button round" %>
 <%= javascript_tag("timer();") %>

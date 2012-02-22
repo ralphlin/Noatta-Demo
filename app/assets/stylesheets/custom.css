@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #cff;
+  background: #ffffd1;
 }
 
 header {
@@ -185,6 +185,83 @@ a.scansuccess_button {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  position:relative;
+  top:20px;
+  text-align: center;
+  width: 140px;
+  color: #fff;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.scan_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position:relative;
+  top:-42px;
+  right:10px;
+}
+
+.newuser_email_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.amount_textfield {
+  width: 400px;
+  height: 30px;
+  position:relative; 
+  top: 20px;
+  font-size: 150%;
+}
+
+.newuser_email_textfield {
+  width: 450px;
+  height: 30px;
+  position:relative; 
+  right: -110px;
+  font-size: 150%;
+}
+
+a.purchase_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position:relative;
+  left:-30px;
+  text-align: center;
+  width: 140px;
+  color: #fff;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+a.cancel_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position:relative;
+  top:-12px;
+  left:-70px;
+  text-align: center;
+  width: 140px;
+  color: #fff;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+a.continue_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   text-align: center;
   width: 140px;
   color: #fff;
@@ -226,6 +303,18 @@ table.profile {
 td.main {
   width: 70%;
   padding: 1em;
+}
+
+td.scanin {
+  width: 70%;
+  padding: 1em;
+  text-align: right;
+}
+
+td.scanin_gravatar {
+  width: 70%;
+  padding: 1em;
+  margin-right: 150px;
 }
 
 td.sidebar {
