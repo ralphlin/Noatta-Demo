@@ -1,7 +1,9 @@
 ---
 logo.png: logo-a4525ac771b6cf9bb1cf374c5c404b45.png
+newuser_email_button.png: newuser_email_button-ba6964757c6ca89846e61515c59812a5.png
 rails.png: rails-e4b51606cd77fda2615e7439907bfc92.png
-application.js: application-10bd88c3f5e0ca6763ea7da121ab9056.js
+scan_button.png: scan_button-1b489691cfb668d37a673a11610f2cb9.png
+application.js: application-0fb84024ca2c809d3e237406c87ba68f.js
 backup default stylesheet/application.css: backup default stylesheet/application-1c9609bc58b1e77c196de29021583379.css
 blueprint/plugins/buttons/icons/cross.png: blueprint/plugins/buttons/icons/cross-1f87fac86c438386527b5e7d5ceecb0e.png
 blueprint/plugins/buttons/icons/key.png: blueprint/plugins/buttons/icons/key-5f38d0204e83d3d83585a62ff993342b.png
