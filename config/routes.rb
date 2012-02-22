@@ -15,6 +15,15 @@ SampleApp::Application.routes.draw do
   match '/newscanuserregistered', :to => 'users#newscanuserregistered'
   match '/signout',    :to => 'sessions#destroy'
 
+  match '/newusersetup', :to => 'users#newusersetup'
+  match '/newusersetup_personalinfo', :to => 'users#newusersetup_personalinfo'
+  match '/save_personalinfo', :to => 'users#save_personalinfo'
+  match '/newusersetup_bankinfo', :to => 'users#newusersetup_bankinfo'
+  match '/save_bankinfo', :to => 'users#save_bankinfo'
+  match '/newusersetup_merchantinfo', :to => 'users#newusersetup_merchantinfo'
+  match '/save_merchantinfo', :to => 'users#save_merchantinfo'
+  match '/newusersetup_finished', :to => 'users#newusersetup_finished'
+  
   match '/mbtest', :to => 'pages#mbtest'
 
   match '/serverdemo',  :to => 'pages#serverdemo'

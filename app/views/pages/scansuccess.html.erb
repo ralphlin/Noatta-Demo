@@ -13,8 +13,6 @@ function timer()
 	    <%= gravatar_for @user %>
 	    <%= @user.name %>!
 	  </h1>
-    <%= link_to "Continue", clientdemo_path, :class => "signup_button round" %>
-
 	</td>
 	<td class = "sidebar round">
 	  <strong>Name</strong> <%= @user.name %><br />
@@ -28,6 +26,8 @@ function timer()
 	</td>
   </tr>
 </table>
+<%= link_to "Continue", clientdemo_path, :class => "signup_button round" %>
+
 <script language="javascript" type="text/javascript">
   timer();
 </script>

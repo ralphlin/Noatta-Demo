@@ -1,0 +1,41 @@
+<%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :old_password %><br />
+    <%= f.password_field :old_password %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "New Password" %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "New Password Confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :street_adress, "Street Address" %><br />
+    <%= f.text_field :street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :city_address, "City" %><br />
+    <%= f.text_field :city_address %>
+  </div>
+  <div class="field">
+    <%= f.label :state_address, "State" %><br />
+    <%= f.text_field :state_address %>
+  </div>
+  <div class="field">
+    <%= f.label :zip_code, "Zip Code" %><br />
+    <%= f.text_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number, "Phone Number" %><br />
+    <%= f.text_field :phone_number %>
+  </div>

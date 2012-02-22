@@ -78,27 +78,15 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Sign up button */
-
-a.signup_button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  width: 190px;
-  color: #fff;
-  background: #006400;
-  font-size: 150%;
-  font-weight: bold;
-  padding: 20px;
-}
-
 /* server demo button */
 
 a.serverdemo_button {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  position:relative;
+  left:-125px;
+  top:-94px;
   text-align: center;
   width: 190px;
   color: #fff;
@@ -114,6 +102,8 @@ a.clientdemo_button {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  position:relative;
+  right:-125px;
   text-align: center;
   width: 190px;
   color: #fff;
@@ -128,9 +118,12 @@ a.clientdemo_button {
 a.checkin_button {
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  left:-200px;
+  top:73px;
   display: block;
   text-align: center;
-  width: 190px;
+  width: 140px;
   color: #fff;
   background: #006400;
   font-size: 150%;
@@ -145,7 +138,40 @@ a.payment_button {
   margin-right: auto;
   display: block;
   text-align: center;
-  width: 190px;
+  width: 140px;
+  color: #fff;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/* Sign up button */
+
+a.signup_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position:relative;
+  right:-200px;
+  top:-72px;
+  text-align: center;
+  width: 140px;
+  color: #fff;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/* Scan in button */
+
+a.scanin_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 140px;
   color: #fff;
   background: #006400;
   font-size: 150%;

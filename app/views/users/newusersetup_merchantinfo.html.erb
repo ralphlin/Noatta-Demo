@@ -1,0 +1,10 @@
+<h1>Filling in Merchant information</h1>
+
+<p>If you have them, please fill out your member ID number for the following merchants:</p>
+
+<%= form_for(@user, :url => { :action => "save_merchantinfo" }) do |f| %>
+  <%= render 'newusermerchantfields', :f => f %>
+  <div class="actions">
+    <%= f.submit "Finish" %>
+  </div>
+<% end %>

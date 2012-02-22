@@ -1,0 +1,10 @@
+<h1>Filling in bank information</h1>
+
+<p>Please fill in the following bank information to use for payment:</p>
+
+<%= form_for(@user, :url => { :action => "save_bankinfo" }) do |f| %>
+  <%= render 'newuserbankfields', :f => f %>
+  <div class="actions">
+    <%= f.submit "Continue to Step 3" %>
+  </div>
+<% end %>

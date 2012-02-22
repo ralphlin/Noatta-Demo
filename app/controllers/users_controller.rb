@@ -54,6 +54,63 @@ class UsersController < ApplicationController
     @title = "Welcome!"
   end
 
+  def newusersetup
+    @title = "Welcome!"
+    @user = current_user
+  end
+
+  def newusersetup_personalinfo
+    @title = "Setting up account information"
+    @user = current_user
+  end
+
+  def save_personalinfo
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      sign_in @user
+      redirect_to newusersetup_bankinfo_path
+    else
+      flash[:failure] = "Unable to save personal info!"
+      redirect_to root_path
+    end
+  end
+
+  def newusersetup_bankinfo
+    @title = "Setting up account information"
+    @user = current_user
+  end
+
+  def save_bankinfo
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      sign_in @user
+      redirect_to newusersetup_merchantinfo_path
+    else
+      flash[:failure] = "Unable to save bank info!"
+      redirect_to root_path
+    end
+  end
+
+  def newusersetup_merchantinfo
+    @title = "Setting up account information"
+    @user = current_user
+    @user.business1_name = "Mobius Fit"
+    @user.business2_name = "Stanford Faculty/Staff Access"
+    @user.business3_name = "Costco"
+    @user.business4_name = "Starbucks"
+  end
+
+  def save_merchantinfo
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      sign_in @user
+      redirect_to newusersetup_finished_path
+    else
+      flash[:failure] = "Unable to save merchant info!"
+      redirect_to root_path
+    end
+  end
+
   def create
     if signed_in?
       redirect_to root_path
@@ -90,7 +147,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    # @user = User.find(params[:id]) test comment
+    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:succes] = "Profile updated."
       redirect_to @user
