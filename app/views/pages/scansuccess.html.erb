@@ -9,24 +9,21 @@ function timer()
   <tr>
     <td class="main">
       <h1>
-	    Welcome Back
-	    <%= gravatar_for @user %>
-	    <%= @user.name %>!
-	  </h1>
-	</td>
-	<td class = "sidebar round">
-	  <strong>Name</strong> <%= @user.name %><br />
-	  <strong>Address</strong><br />
-	  <%= @user.street_address %><br />
-	  <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />
-	  <strong>Phone Number</strong><br />
-	  <%= @user.phone_number %>
-
-	   
-	</td>
+	    <%= @user.name %><br />
+      </h1>
+      Mobius Member ID: <%= @user.business1_id %><br />
+      Status: Current	    
+	  </td>
+    <td>
+      <%= gravatar_for @user, options = { :size => 200 } %>
+    </td>
+  </tr>
+  <tr>
+    <td class="main">
+      <%= link_to "Continue", clientdemo_path, :class => "scansuccess_button round" %>
+    </td>
   </tr>
 </table>
-<%= link_to "Continue", clientdemo_path, :class => "signup_button round" %>
 
 <script language="javascript" type="text/javascript">
   timer();
