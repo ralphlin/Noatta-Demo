@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #ffffd1;
+  background: #fff;
 }
 
 header {
@@ -187,6 +187,7 @@ a.scansuccess_button {
   display: block;
   position:relative;
   top:20px;
+  right:-50px;
   text-align: center;
   width: 140px;
   color: #fff;
@@ -202,7 +203,7 @@ a.scansuccess_button {
   display: block;
   position:relative;
   top:-42px;
-  right:10px;
+  right:-140px;
 }
 
 .newuser_email_button {
@@ -212,16 +213,17 @@ a.scansuccess_button {
 }
 
 .amount_textfield {
-  width: 400px;
+  width: 200px;
   height: 30px;
   position:relative; 
   top: 20px;
-  font-size: 150%;
+  right:-120px;
+  font-size: 140%;
 }
 
 .newuser_email_textfield {
   width: 450px;
-  height: 30px;
+  height: 27px;
   position:relative; 
   right: -110px;
   font-size: 150%;
@@ -308,13 +310,15 @@ td.main {
 td.scanin {
   width: 70%;
   padding: 1em;
-  text-align: right;
+  text-align: center;
 }
 
 td.scanin_gravatar {
   width: 70%;
   padding: 1em;
-  margin-right: 150px;
+  position:relative;
+  left: -125px;
+  top: -5px;
 }
 
 td.sidebar {
@@ -322,6 +326,12 @@ td.sidebar {
   padding: 1em;
   vertical-align: top;
   background: #ffc;
+}
+
+td.amount_text {
+  position:relative;
+  right: -130px;
+  top: 10px;
 }
 
 /* for Gravatr */

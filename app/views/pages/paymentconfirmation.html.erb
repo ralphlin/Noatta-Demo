@@ -1,6 +1,6 @@
 <table class="profile" summary="Payment confirmation">
   <tr>
-    <td class="main">
+    <td class="scanin">
       <h1>
       <%= @user.name %><br />
       </h1>
@@ -11,8 +11,8 @@
       <%= gravatar_for @user, options = { :size => 150 } %>
     </td>
   </tr>
-  <tr class="main">
-    <td>
+  <tr>
+    <td class="amount_text">
       <h1>Amount to be Charged: $<%= params[:amounttopay] %></h1>
     </td>
   </tr>
