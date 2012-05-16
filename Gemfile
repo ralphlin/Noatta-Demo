@@ -8,6 +8,8 @@ gem 'rails', '3.1.1'
 gem 'gravatar_image_tag'
 gem 'will_paginate'
 gem 'savon'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
 
 group :development do
 	gem 'annotate'

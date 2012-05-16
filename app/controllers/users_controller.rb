@@ -7,13 +7,16 @@ class UsersController < ApplicationController
   def index
     @title = "All users"
     @users = User.paginate(:page => params[:page])
+    if signed_in?
+      @user = current_user
+    end
   end
 
   def show
   	@user = User.find(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
-  	@transactions = @user.transactions.paginate(:page => params[:page])
-    @title = @user.name
+  	@transactions = @user.transactions.paginate(:page => params[:page], :per_page => 5)
+    @title = "Transactions"
   end
 
   def new
@@ -32,9 +35,12 @@ class UsersController < ApplicationController
       @user = User.new
       @title = "Sign Up"
     end
+    @noheader = true
   end
 
   def createandregisterscan
+    @nosidebar = true
+    @nonav = true
     if signed_in?
       redirect_to root_path
     else
@@ -52,20 +58,25 @@ class UsersController < ApplicationController
 
   def newscanuserregistered
     @title = "Welcome!"
+    @nosidebar = true
+    @nonav = true
   end
 
   def newusersetup
-    @title = "Welcome!"
+    @title = "Welcome to Noatta!"
     @user = current_user
+    @nosidebar = true
   end
 
   def newusersetup_personalinfo
     @title = "Setting up account information"
     @user = current_user
+    @nosidebar = true
   end
 
   def save_personalinfo
     @user = current_user
+    @nosidebar = true
     if @user.update_attributes(params[:user])
       sign_in @user
       redirect_to newusersetup_bankinfo_path
@@ -76,12 +87,14 @@ class UsersController < ApplicationController
   end
 
   def newusersetup_bankinfo
-    @title = "Setting up account information"
+    @title = "Setting up banks"
     @user = current_user
+    @nosidebar = true
   end
 
   def save_bankinfo
     @user = current_user
+    @nosidebar = true
     if @user.update_attributes(params[:user])
       sign_in @user
       redirect_to newusersetup_merchantinfo_path
@@ -92,16 +105,22 @@ class UsersController < ApplicationController
   end
 
   def newusersetup_merchantinfo
-    @title = "Setting up account information"
+    @title = "Setting up merchants"
     @user = current_user
     @user.business1_name = "Mobius Fit"
     @user.business2_name = "Stanford Faculty/Staff Access"
     @user.business3_name = "Costco"
     @user.business4_name = "Starbucks"
+    @nosidebar = true
   end
 
   def save_merchantinfo
     @user = current_user
+    @user.business1_name = "Mobius Fit"
+    @user.business2_name = "Stanford Faculty/Staff Access"
+    @user.business3_name = "Costco"
+    @user.business4_name = "Starbucks"
+    @nosidebar = true
     if @user.update_attributes(params[:user])
       sign_in @user
       redirect_to newusersetup_finished_path
@@ -109,6 +128,13 @@ class UsersController < ApplicationController
       flash[:failure] = "Unable to save merchant info!"
       redirect_to root_path
     end
+  end
+
+  def newusersetup_finished
+    @title = "Registration complete"
+    @user = current_user
+    @nosidebar = true
+    @nonav = true
   end
 
   def create
@@ -150,7 +176,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:succes] = "Profile updated."
-      redirect_to @user
+      redirect_to profile_path
     else
       @title = "Edit user"
       render 'edit'

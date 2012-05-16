@@ -38,6 +38,7 @@ SampleApp::Application.routes.draw do
         :to => 'pages#paymentposted', :constraints => {:amounttopay => /[^\/]+/}
 
   match '/checkin',     :to => 'pages#checkin'
+  match '/usernotfound',     :to => 'pages#usernotfound'
   match '/scansuccess/:id', :to => 'pages#scansuccess'
   match '/scanin/:id', :to => 'pages#scanin'
 
@@ -46,6 +47,8 @@ SampleApp::Application.routes.draw do
   match '/edit_bank_info', :to => 'pages#edit_bank_info'
   match '/edit_merchant_info', :to => 'pages#edit_merchant_info'  
     
+  match '/profile', :to => 'pages#profile'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

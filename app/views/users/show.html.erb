@@ -1,28 +1,27 @@
+
+<%= will_paginate @transactions %>
+
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
-      <h1>
-	    Welcome Back
-	    <%= gravatar_for @user %>
-	    <%= @user.name %>!
-	  </h1>
-
 	  <% unless @user.transactions.empty? %>
 	    <table class="transactions" summary="User transactions">
+	      <tr>
+	      	<td class = "transactions_table_header_business_name">
+	      	  Business Name
+      	    </td>
+	        <td class = "transactions_table_header_amount">
+	          Amount
+            </td>
+            <td class = "transactions_table_header_date">
+              Date
+	      	</td>
+	      </tr>
 	      <%= render @transactions %>
 	    </table>
-	    <%= will_paginate @transactions %>
 	  <% end %>
-	</td>
-	<td class = "sidebar round">
-	  <strong>Name</strong> <%= @user.name %><br />
-	  <strong>Address</strong><br />
-	  <%= @user.street_address %><br />
-	  <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />
-	  <strong>Phone Number</strong><br />
-	  <%= @user.phone_number %>
-
-	   
 	</td>
   </tr>
 </table>
+
+<%= will_paginate @transactions%>

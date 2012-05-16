@@ -15,40 +15,15 @@ header img {
   background: #fff;
 }
 
-section {
-  margin-top: 1em;
-  font-size: 120%;
-  padding: 20px;
-  background: #fff;
-}
-
-section h1 {
-  font-size: 200%;
-}
-
-/* Links */
-
-a {
-  color: #09c;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #069;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #069;
+h1.page_title {
+  font-size:200%;
 }
 
 /* Navigation */
 
 nav {
   float: right;
-}
-
-nav {
+  top:-10px;
   background-color: white;
   padding: 0 0.7em;
   white-space: nowrap;
@@ -76,6 +51,38 @@ nav ul li a:visited {
 
 nav ul li a:hover {
   text-decoration: underline;
+}
+
+
+
+
+section {
+  position:relative;
+  top:5px;
+  margin-top: 1em;
+  font-size: 120%;
+  padding: 20px;
+  background: #fff;
+}
+
+section h1 {
+  font-size: 200%;
+}
+
+/* Links */
+
+a {
+  color: #09c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #069;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #069;
 }
 
 /* server demo button */
@@ -273,6 +280,16 @@ a.continue_button {
   padding: 20px;
 }
 
+a.sidebar_nav_button {
+  display: block;
+  text-align: center;
+  width: 90px;
+  color: #fff;
+  background: #006400;
+  font-size: 130%;
+  padding: 25px;
+}
+
 /* Round corners */
 
 .round {
@@ -307,9 +324,29 @@ td.main {
   padding: 1em;
 }
 
+td.header_profile {
+  text-align: right;
+  position:relative;
+  top:35px;
+  padding: 1em;
+}
+
+td.profile {
+  padding: 1em;
+  text-align:right;
+}
+
 td.scanin {
   width: 70%;
   padding: 1em;
+  text-align: center;
+}
+
+td.usernotfound {
+  width: 70%;
+  padding: 1em;
+  position:relative;
+  left:45px;
   text-align: center;
 }
 
@@ -321,11 +358,46 @@ td.scanin_gravatar {
   top: -5px;
 }
 
-td.sidebar {
+td.transactions_table_header_business_name {
+  font-weight:bold;
+  width:150px;
+}
+
+td.transactions_table_header_amount {
+  font-weight:bold;
+  width:100px;
+}
+
+td.transactions_table_header_date {
+  font-weight:bold;
+  width:150px;
+}
+table.body td.sidebar {
   width: 30%;
   padding: 1em;
   vertical-align: top;
+  background: #fff;
+}
+
+td.header_narrow {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #fff;
+}
+
+td.header_narrow_title {
+  width: 30%;
+  padding: 1em;
+  vertical-align: bottom;
   background: #ffc;
+}
+
+td.sidebar_nav {
+  width: 20%;
+  padding: 1em;
+  vertical-align: top;
+  background: #fff;
 }
 
 td.amount_text {
@@ -463,13 +535,7 @@ table.transactions {
 }
 
 table.transactions tr {
-  height: 70px;
-}
-
-table.transactions tr td.gravatar {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  width: 50px;
+  height: 20px;
 }
 
 table.transactions tr td.transaction {
@@ -478,8 +544,14 @@ table.transactions tr td.transaction {
   padding-top: 10px;
 }
 
-table.transactions tr td.transaction span.timestamp {
-  display: block;
-  font-size: 85%;
-  color: #666;
+table.transactions tr td.transaction_business_name {
+  width:150px;
+}
+
+table.transactions tr td.transaction_amount {
+  width:40px;
+}
+
+table.transactions tr td.transaction_timestamp {
+  width:100px;
 }

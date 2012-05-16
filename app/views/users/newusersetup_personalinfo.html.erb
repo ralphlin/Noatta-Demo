@@ -1,10 +1,8 @@
-<h1>Filling in Account information</h1>
-
 <p>Please fill in the following information:</p>
 
 <%= form_for(@user, :url => { :action => "save_personalinfo" }) do |f| %>
   <%= render 'newuserpersonalfields', :f => f %>
   <div class="actions">
-    <%= f.submit "Continue to Step 2" %>
+    <%= image_submit_tag "newuser_bar_2.png" %>
   </div>
 <% end %>

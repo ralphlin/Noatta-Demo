@@ -1,10 +1,12 @@
 <tr>
-  <td class="transaction">
-    <span class="business name"><%= transaction.business_name %></span>
-    <span class="amount"><%= number_to_currency transaction.amount %>
-    <span class="timestamp">
-      Posted <%= time_ago_in_words(transaction.created_at) %> ago.
-    </span>
+  <td class="transaction_business_name">
+  	<%= transaction.business_name %>
+  </td>
+  <td class="transaction_business_name">
+  	<%= number_to_currency transaction.amount %>
+  </td>
+  <td class="transaction_time">
+  	<%= transaction.created_at.strftime("%I:%M %b %-d %Y") %>
   </td>
   <% user = transaction.user rescue User.find(transaction.user_id) %>
 <tr>

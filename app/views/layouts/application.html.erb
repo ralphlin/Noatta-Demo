@@ -14,20 +14,28 @@
     <%= render 'layouts/stylesheets' %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "curvycorners.js" %>
+
     <script language="javascript" type="text/javascript">
+    /* global variables used to determine which route to
+    take after onIdentify */
+
     checkin=false;
     payscan=false;
+
+    /* Identify calls single finger scan from M2Sys ActiveX control */
     function Identify()
     {
       BioPlugInActX.IdentifyQuick(0);
     }
 
+    /* scanIn is called after onIdentify for checkin */
     function scanIn(uid)
     {
       var targetURL = 'http://localhost:3000/scanin/'
       window.location.replace(targetURL + uid); 
     }
 
+    /* scanPay is called after onIdentify for payment */
     function scanPay(uid)
     {
       var targetURL = 'http://localhost:3000/paymentconfirmation/'
@@ -38,11 +46,13 @@
 
 
     <script language="javascript" type="text/javascript" for="BioPlugInActX" event="OnIdentify()" >
+      /* catches onIdentify ActiveX event and directs to correct page 
+      for either check in or payment */
+
       var foundID = BioPlugInActX.result;
       if ((foundID == "000000000") | (foundID == "-1"))
       {
-        alert("User not found!");
-        window.location.replace('http://localhost:3000/clientdemo');
+        window.location.replace('http://localhost:3000/usernotfound');
       }
       else
       { 
@@ -58,7 +68,6 @@
         }
       }
     </script>
-
   </head>
   <body>
     <div class="container">
@@ -67,9 +76,24 @@
         <% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>
         <% end %>
-        <%= yield %>
+        <% if signed_in? %>
+          <table class="body" summary="For signed-in users">
+            <tr>
+              <% if @nosidebar.nil? %>
+                <td class="sidebar_nav">
+                  <%= render 'shared/sidebar_nav_buttons' %>
+                </td>
+              <% end%>
+              <td>
+                <%= yield %>
+              </td>
+            </tr>
+          </table>
+        <% else %>
+          <%= yield %>
+        <% end %>
       </section>
-      <%= debug(params) if Rails.env.development? %>
+      
     </div>
   </body>
 </html>

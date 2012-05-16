@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
-  	@title = "Home"
+    if signed_in?
+      @user = current_user
+    end
+    @noheader = true;
   end
 
   def mbtest
@@ -17,10 +20,14 @@ class PagesController < ApplicationController
 
   def help
   	@title = "Help"
+    if signed_in?
+      @user = current_user
+    end
   end
 
   def clientdemo
     @title = "Client Demo"
+    @noheader = true;
   end
 
   def serverdemo
@@ -28,17 +35,26 @@ class PagesController < ApplicationController
     if signed_in?
       @micropost = Micropost.new
       @feed_items = current_user.feed.paginate(:page => params[:page])
-    end   
+      @user = current_user
+    end
+    @noheader=true   
   end
 
   def checkin
     @title = "Check In"
     @foundID
+    @noheader = true;
+  end
+
+  def usernotfound
+    @title = "User Not Found!"
+    @noheader = true;
   end
 
   def scansuccess
     @user = User.find(params[:id])
     @title = @user.name
+    @noheader = true;
   end
 
   def scanin
@@ -88,21 +104,32 @@ class PagesController < ApplicationController
   
   def paymentscan
     @title = "Payment Scan"
+    @noheader = true;
   end
 
   def enterpayment
     @title = "Payment"
+    @noheader = true;
   end
 
   def paymentconfirmation
     @user = User.find(params[:id])
     @title = @user.name
+    @noheader = true;
   end
 
   def paymentposted
     @user = User.find(params[:id])
     @title = @user.name
     @transaction = Transaction.new
+    @noheader = true;
+  end
+
+  def profile
+    @title = "Profile"
+    if signed_in?
+      @user = current_user
+    end
   end
 
 end

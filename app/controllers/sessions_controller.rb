@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       redirect_back_or newusersetup_path
     else
   		sign_in user
-  		redirect_back_or user
+  		redirect_back_or profile_path
   	end
 
   end

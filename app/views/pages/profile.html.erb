@@ -1,0 +1,14 @@
+<table class="profile">
+  <tr>
+    <td class = "profile">
+      <h1>
+        <%= @user.name %><br />
+      </h1>
+      <%= @user.street_address %><br />
+      <%= @user.city_address %> <%= @user.state_address %> <%= @user.zip_code %><br />     
+    </td>
+    <td>
+      <%= gravatar_for @user, options = { :size => 200 } %>
+    </td>
+  </tr>
+</table>

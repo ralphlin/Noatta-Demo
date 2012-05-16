@@ -1,6 +1,5 @@
-<h1><%= @user.name %>'s Bank Accounts</h1>
 <p>
-<strong><%= @user.bank1_name %></strong>
+<h1><%= @user.bank1_name %></h1>
 <% if @user.bank1_isDefault == true %>
   <i> Default payment account</i>
 <% end %>
@@ -11,7 +10,7 @@
 <%= @user.bank1_account_number %><br />
 <br />
 
-<strong><%= @user.bank2_name %></strong>
+<h1><%= @user.bank2_name %></h1>
 <% if @user.bank2_isDefault == true %>
   <i> Default payment account</i>
 <% end %>

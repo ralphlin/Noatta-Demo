@@ -1,0 +1,3 @@
+<%= link_to "Businesses", merchants_path, :class => "sidebar_nav_button round" %><br /><br />
+<%= link_to "Bank Accounts", bank_accounts_path, :class => "sidebar_nav_button round" %><br /><br />
+<%= link_to "Transactions", @user, :class => "sidebar_nav_button round" %>
