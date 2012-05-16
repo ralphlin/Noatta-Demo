@@ -38,7 +38,7 @@
     /* scanPay is called after onIdentify for payment */
     function scanPay(uid)
     {
-      var targetURL = 'http://noattademo.herkou.com/paymentconfirmation/'
+      var targetURL = 'http://noattademo.heroku.com/paymentconfirmation/'
       var amount = <%= params[:amounttopay] %>
       window.location.replace(targetURL + uid + "/" + amount); 
     }
