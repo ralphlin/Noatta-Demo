@@ -123,6 +123,11 @@ class PagesController < ApplicationController
     @title = @user.name
     @transaction = Transaction.new
     @transaction = @user.transactions.build(:business_name => "Mobius Fit", :amount => params[:amounttopay])
+    if @transaction.save
+      flash.now[:notice] = "Payment was processed succesfully!"
+    else
+      flash.now[:notice] = "Payment error!"
+    end
     @noheader = true;
   end
 
