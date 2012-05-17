@@ -6,12 +6,7 @@ function timer()
 </script>
 
 
-<%= @transaction = @user.transactions.build(:business_name => "Mobius Fit", :amount => params[:amounttopay]) %>
-<% if @transaction.save %>
-  <h1><center>Payment was processed successfully</center></h1>
-<% else %>
-  <h1><center>Payment Error!</center></h1>
-<% end %>
+
 
 <%= link_to "Continue", clientdemo_path, :class => "continue_button round" %>
 <%= javascript_tag("timer();") %>
