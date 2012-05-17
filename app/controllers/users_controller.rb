@@ -164,7 +164,7 @@ class UsersController < ApplicationController
   def update_bank_info
     # @user = User.find(params[:id]) test comment
     if @user.update_attributes(params[:user])
-      flash[:succes] = "Bank Info updated."
+      flash[:success] = "Bank Info updated."
       redirect_to bank_accounts_path
     else
       @title = "Confirm password"
@@ -175,7 +175,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:succes] = "Profile updated."
+      flash[:success] = "Profile updated."
       redirect_to profile_path
     else
       @title = "Edit user"
