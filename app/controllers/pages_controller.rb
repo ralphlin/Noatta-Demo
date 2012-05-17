@@ -122,6 +122,7 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
     @title = @user.name
     @transaction = Transaction.new
+    @transaction = @user.transactions.build(:business_name => "Mobius Fit", :amount => params[:amounttopay])
     @noheader = true;
   end
 

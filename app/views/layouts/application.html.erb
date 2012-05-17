@@ -74,7 +74,7 @@
       <%= render 'layouts/header' %>
       <section class="round">
         <% flash.each do |key, value| %>
-          <div class="flash <%= key %>">!!<%= value %></div>
+          <div class="flash <%= key %>"><%= value %></div>
         <% end %>
         <% if signed_in? %>
           <table class="body" summary="For signed-in users">
