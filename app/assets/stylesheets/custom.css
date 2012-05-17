@@ -319,7 +319,7 @@ table.profile {
   margin-bottom: 0;
 }
 
-td.main {
+table.profile td.main {
   background-color: #fff;
   width: 70%;
   padding: 1em;
