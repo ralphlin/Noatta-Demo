@@ -325,6 +325,12 @@ table.profile td.main {
   padding: 1em;
 }
 
+table.profile tr td.main {
+  background-color: #fff;
+  width: 70%;
+  padding: 1em;
+}
+
 td.header_profile {
   text-align: right;
   position:relative;
