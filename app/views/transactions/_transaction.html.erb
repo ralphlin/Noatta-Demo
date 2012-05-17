@@ -6,7 +6,7 @@
   	<%= number_to_currency transaction.amount %>
   </td>
   <td class="transaction_time">
-  	<%= transaction.created_at.strftime("%I:%M %b %-d %Y") %>
+  	<%= transaction.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %b %-d %Y") %>
   </td>
   <% user = transaction.user rescue User.find(transaction.user_id) %>
 <tr>

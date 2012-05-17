@@ -13,7 +13,7 @@
   </tr>
   <tr>
     <td class="amount_text">
-      <h1>Amount to be Charged: $<%= params[:amounttopay] %></h1>
+      <h1>Amount to be Charged: <%= number_to_currency params[:amounttopay] %></h1>
     </td>
   </tr>
   <tr>
