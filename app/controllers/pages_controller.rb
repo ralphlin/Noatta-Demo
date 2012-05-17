@@ -3,7 +3,6 @@ class PagesController < ApplicationController
     if signed_in?
       @user = current_user
     end
-    @title = "Noatta Demo"
     @noheader = true;
   end
 
