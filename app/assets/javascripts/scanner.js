@@ -22,14 +22,14 @@ function Identify()
 /* scanIn is called after onIdentify for checkin */
 function scanIn(uid)
 {
-  var targetURL = 'http://noattademo.heroku.com/scanin/'
+  var targetURL = 'http://www.noatta.com/scanin/'
   window.location.replace(targetURL + uid); 
 }
 
 /* scanPay is called after onIdentify for payment */
 function scanPay(uid)
 {
-  var targetURL = 'http://noattademo.heroku.com/paymentconfirmation/'
+  var targetURL = 'http://www.noatta.com/paymentconfirmation/'
   var amount = <%= params[:amounttopay] %>
   window.location.replace(targetURL + uid + "/" + amount); 
 }
@@ -43,7 +43,7 @@ for either check in or payment */
   if ((foundID == "000000000") | (foundID == "-1"))
   {
     alert("User not found!");
-    window.location.replace('http://noattademo.heroku.com/clientdemo');
+    window.location.replace('http://www.noatta.com/clientdemo');
   }
   else
   { 
