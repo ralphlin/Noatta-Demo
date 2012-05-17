@@ -198,7 +198,6 @@ a.scansuccess_button {
   text-align: center;
   width: 140px;
   color: #fff;
-  background: #006400;
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
@@ -245,7 +244,6 @@ a.purchase_button {
   text-align: center;
   width: 140px;
   color: #fff;
-  background: #006400;
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
@@ -261,7 +259,6 @@ a.cancel_button {
   text-align: center;
   width: 140px;
   color: #fff;
-  background: #006400;
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
@@ -274,7 +271,6 @@ a.continue_button {
   text-align: center;
   width: 140px;
   color: #fff;
-  background: #006400;
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
@@ -285,7 +281,6 @@ a.sidebar_nav_button {
   text-align: center;
   width: 90px;
   color: #fff;
-  background: #006400;
   font-size: 130%;
   padding: 25px;
 }

@@ -78,11 +78,11 @@ class PagesController < ApplicationController
     if signed_in?
       @user = current_user
     end
-    @title = "Bank Accounts"
+    @title = "Payment Accounts"
   end
 
   def merchants
-    @title = "Merchants"
+    @title = "Businesses/Merchants"
     if signed_in?
       @user = current_user
     end

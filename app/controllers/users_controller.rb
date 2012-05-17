@@ -108,7 +108,7 @@ class UsersController < ApplicationController
     @title = "Setting up merchants"
     @user = current_user
     @user.business1_name = "Mobius Fit"
-    @user.business2_name = "Stanford Faculty/Staff Access"
+    @user.business2_name = "Stanford University"
     @user.business3_name = "Costco"
     @user.business4_name = "Starbucks"
     @nosidebar = true
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   def save_merchantinfo
     @user = current_user
     @user.business1_name = "Mobius Fit"
-    @user.business2_name = "Stanford Faculty/Staff Access"
+    @user.business2_name = "Stanford University"
     @user.business3_name = "Costco"
     @user.business4_name = "Starbucks"
     @nosidebar = true
