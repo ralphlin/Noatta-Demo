@@ -331,6 +331,13 @@ table.profile tr td.main {
   padding: 1em;
 }
 
+table.profile tr td.amount_text {
+  background-color: #fff;
+  position:relative;
+  right: -130px;
+  top: 10px;
+}
+
 td.header_profile {
   text-align: right;
   position:relative;
@@ -405,12 +412,6 @@ td.sidebar_nav {
   padding: 1em;
   vertical-align: top;
   background: #fff;
-}
-
-td.amount_text {
-  position:relative;
-  right: -130px;
-  top: 10px;
 }
 
 /* for Gravatr */
