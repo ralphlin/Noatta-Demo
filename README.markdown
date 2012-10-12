@@ -7,7 +7,10 @@ system to replace credit cards and smartphone apps for
 purchase of items using a Hitachi Finger Vein Scanner for user
 authentication. This particular prototype was designed to 
 be deployed at fitness centers and, thus, has check-in, 
-purchase, and new account creation functions.
+purchase, and new account creation functions. The prototype
+is currently live at www.noatta.com, but many of the functions
+will not work if you do not have a Hitachi Finger Vein Scanner
+or M2Sys drivers installed.
 
 ## Client
 
