@@ -1,16 +1,17 @@
 # Noatta Demo
 
 This is the Ruby on Rails code for the client and server
-demo of the Noatta finger scanning system. This two part
+demo of the Noatta finger scanning/payment system. This two part
 demo was designed as a prototype for a new point-of-sale 
 system to replace credit cards and smartphone apps for 
 purchase of items using a Hitachi Finger Vein Scanner for user
 authentication. This particular prototype was designed to 
 be deployed at fitness centers and, thus, has check-in, 
 purchase, and new account creation functions. The prototype
-is currently live at www.noatta.com, but many of the functions
-will not work if you do not have a Hitachi Finger Vein Scanner
-or M2Sys drivers installed.
+is currently live at www.noatta.com with approximately 45
+individual pages/views, but many of the functions will not work 
+if you do not have a Hitachi Finger Vein Scanner or M2Sys 
+drivers installed.
 
 ## Client
 
